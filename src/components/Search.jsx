@@ -9,6 +9,13 @@ const Search = () => {
     const [year, setYear] = useState("")
     const [nominees, setNominees] = useState([])
 
+    //component did mount, retrieving nominees from local storage
+    useEffect(()=>{
+        if(localStorage.getItem("nominees")){
+            setNominees(JSON.parse(localStorage.getItem("nominees")))
+        }
+    }, [])
+
     const search = async (event) =>{
         try{
             const response = await fetch('http://www.omdbapi.com/?i=tt3896198&apikey=81db3928&type=movie&t='+encodeURIComponent(event.target.value).replace('%20','+'))
@@ -24,6 +31,7 @@ const Search = () => {
     const handleNominate = ()=>{
         if(title && year){
             setNominees([...nominees, {title, year}])
+            localStorage.setItem("nominees", JSON.stringify([...nominees, {title, year}]))
         }else{
             console.error("No Movie Searched")
         }
