@@ -1,10 +1,9 @@
-const Nominations = ({data}) => {
+const Nominations = ({data, onRemoveNominee}) => {
     return(
         <div>
-            <div>
-                <h1>{data.title}</h1>
-                <h2>{data.year}</h2>
-            </div>
+            <h1>{data.title}</h1>
+            <h2>{data.year}</h2>
+            <button onClick={()=>onRemoveNominee(data.title)}>Remove</button>
         </div>
     )
 }

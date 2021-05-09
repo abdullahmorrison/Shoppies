@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import SearchResults from './SearchResults'
+import SearchResult from './SearchResult'
 import Nominee from './Nominee'
 import { v4 as uuidv4 } from 'uuid';
 
@@ -8,8 +8,6 @@ const Search = () => {
     const [title, setTitle] = useState("")
     const [year, setYear] = useState("")
     const [nominees, setNominees] = useState([])
-
-    
 
     const search = async (event) =>{
         try{
@@ -30,18 +28,23 @@ const Search = () => {
             console.error("No Movie Searched")
         }
     }
-    const handleRemoveNominee=()=>{
-
+    const handleRemoveNominee=(title)=>{
+        setNominees(nominees.filter(n => n.title !== title))
     }
     return (
         <>
+            {
+                nominees.length >= 5
+                ? <h1> Banner </h1>
+                :<></>
+            }
             <input 
                 type="text" 
                 className="scale__header__input" 
                 placeholder="Search" 
                 onKeyUp={search} 
             />
-            <SearchResults title={title} year={year} onNominate={handleNominate}/>
+            <SearchResult title={title} year={year} nominatedTitles={nominees} onNominate={handleNominate}/>
             {nominees.map(nominee => (
                 <Nominee key={uuidv4()} data={nominee} onRemoveNominee={handleRemoveNominee}/>
             ))}
