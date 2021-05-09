@@ -37,7 +37,9 @@ const Search = () => {
         }
     }
     const handleRemoveNominee=(title)=>{
-        setNominees(nominees.filter(n => n.title !== title))
+        const changedNominees = nominees.filter(n => n.title !== title)
+        setNominees(changedNominees)
+        localStorage.setItem("nominees", JSON.stringify(changedNominees))
     }
     return (
         <>
