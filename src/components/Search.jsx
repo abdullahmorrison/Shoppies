@@ -15,7 +15,7 @@ const Search = () => {
             setNominees(JSON.parse(localStorage.getItem("nominees")))
         }
     }, [])
-
+    //fetching from OMDb every time a user presses a key in the search
     const search = async (event) =>{
         try{
             const response = await fetch('http://www.omdbapi.com/?i=tt3896198&apikey=81db3928&type=movie&t='+encodeURIComponent(event.target.value).replace('%20','+'))
@@ -27,7 +27,7 @@ const Search = () => {
             console.log(err)
         }
     }
-
+    //adds nominees and saves it to local storage
     const handleNominate = ()=>{
         if(title && year){
             setNominees([...nominees, {title, year}])
@@ -36,6 +36,7 @@ const Search = () => {
             console.error("No Movie Searched")
         }
     }
+    //removes nominees from state and local storage
     const handleRemoveNominee=(title)=>{
         const changedNominees = nominees.filter(n => n.title !== title)
         setNominees(changedNominees)
