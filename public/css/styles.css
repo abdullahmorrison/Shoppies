@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+}
+
+input[type="text"] {
+  font-size: 25px;
+  padding: 5px 10px;
+}
+
+button {
+  background-color: white;
+  margin: 10px 0;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+button:hover {
+  -webkit-box-shadow: 1px 1px 0 black;
+          box-shadow: 1px 1px 0 black;
+}
+
+.searchResults {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 20px 0;
+  padding: 20px;
+}
+
+.nominations {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.nominations h1 {
+  margin-bottom: 20px;
+}
+
+.nominees {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nominees__description {
+  margin-right: 20px;
+}
+/*# sourceMappingURL=styles.css.map */

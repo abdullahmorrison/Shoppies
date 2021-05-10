@@ -1,6 +1,6 @@
 const SearchResult = ({title, year, nominatedTitles, onNominate}) => {
     return (
-        <div>
+        <div className="searchResults">
             <h1>{title}</h1>
             <h2>{year}</h2>
             {nominatedTitles.find((element) => {

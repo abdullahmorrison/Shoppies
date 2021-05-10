@@ -46,19 +46,22 @@ const Search = () => {
         <>
             {
                 nominees.length >= 5
-                ? <h1> Banner </h1>
+                ? <h1> You Have Nominated 5 Movies </h1>
                 :<></>
             }
             <input 
                 type="text" 
                 className="scale__header__input" 
-                placeholder="Search" 
+                placeholder="Search Movie Title" 
                 onKeyUp={search} 
             />
             <SearchResult title={title} year={year} nominatedTitles={nominees} onNominate={handleNominate}/>
-            {nominees.map(nominee => (
-                <Nominee key={uuidv4()} data={nominee} onRemoveNominee={handleRemoveNominee}/>
-            ))}
+            <div className="nominations">
+                <h1>Nominations:</h1>
+                {nominees.map(nominee => (
+                    <Nominee key={uuidv4()} data={nominee} onRemoveNominee={handleRemoveNominee}/>
+                ))}
+            </div>
         </>
     )
 }
