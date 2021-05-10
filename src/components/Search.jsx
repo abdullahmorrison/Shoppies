@@ -46,7 +46,7 @@ const Search = () => {
         <>
             {
                 nominees.length >= 5
-                ? <h1> You Have Nominated 5 Movies </h1>
+                ? <h1 className="banner"> You Have Nominated 5 Movies </h1>
                 :<></>
             }
             <input 

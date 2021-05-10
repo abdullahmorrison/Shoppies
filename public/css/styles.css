@@ -8,6 +8,13 @@ body {
   padding: 20px;
 }
 
+.banner {
+  background-color: red;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 input[type="text"] {
   font-size: 25px;
   padding: 5px 10px;
